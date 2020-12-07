@@ -1,0 +1,15 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: primary-observer
+  namespace: fleet-local
+spec:
+  branch: main
+  clientSecretName: null
+  paths:
+  - /primary_observer/prerequisites/monitoring
+  - /primary_observer/prerequisites/monitoring-crd
+  repo: https://github.com/shpwrck/KMC-SPOG
+  targets:
+  - clusterSelector: {}
+type: fleet.cattle.io.gitrepo
