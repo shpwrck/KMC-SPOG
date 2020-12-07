@@ -1,0 +1,15 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: remote-workload
+  namespace: fleet-default
+spec:
+  branch: main
+  clientSecretName: null
+  paths:
+  - /remote_workload/prerequisites
+  - /remote_workload/istio
+  repo: https://github.com/shpwrck/KMC-SPOG
+  targets:
+  - clusterSelector: {}
+type: fleet.cattle.io.gitrepo
