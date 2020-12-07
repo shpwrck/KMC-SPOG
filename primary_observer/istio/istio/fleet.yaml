@@ -1,0 +1,43 @@
+defaultNamespace: istio-system
+helm:
+  releaseName: rancher-istio
+  repo: https://charts.rancher.io
+  chart: rancher-istio
+values:
+  overlayFile: |-
+    apiVersion: install.istio.io/v1alpha1
+    kind: IstioOperator
+    spec:
+      addonComponents:
+        istiocoredns:
+          enabled: true
+      components:
+        egressGateways:
+          - name: istio-egressgateway
+            enabled: true
+      values:
+        global:
+          multiCluster:
+            clusterName: primary
+          network: primary
+    
+          # Mesh network configuration. This is optional and may be omitted if
+          # all clusters are on the same network.
+          meshNetworks:
+            primary:
+              endpoints:
+              - fromRegistry: primary
+              gateways:
+              - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
+                port: 443
+    
+            remote:
+              endpoints:
+              - fromRegistry: remote
+              gateways:
+              - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
+                port: 443
+    
+          # Use the existing istio-ingressgateway.
+          meshExpansion:
+            enabled: true
