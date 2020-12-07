@@ -47,3 +47,8 @@ diff:
     kind: ServiceAccount
     operations:
     - {"op":"remove", "path":"/imagePullSecrets"}
+  - apiVersion: monitoring.coreos.com/v1
+    kind: Prometheus
+    namespace: cattle-monitoring-system
+    operations:
+    - {"op":"remove", "path":"/spec/containers"}
