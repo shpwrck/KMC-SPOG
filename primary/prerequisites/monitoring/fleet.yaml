@@ -8,6 +8,9 @@ helm:
       prometheusSpec:
         thanos:
           image: 'quay.io/thanos/thanos:v0.16.0'
+          objectStorageConfig:
+            key: object-store.yaml
+            name: object-store-secret
 diff:
   comparePatches:
   - apiVersion: admissionregistration.k8s.io/v1beta1
