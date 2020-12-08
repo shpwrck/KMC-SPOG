@@ -8,6 +8,6 @@ spec:
   - http:
       paths:
       - backend:
-          serviceName: thanos-sample-query
+          serviceName: query-master-query
           servicePort: 10902
         pathType: ImplementationSpecific
