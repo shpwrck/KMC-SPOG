@@ -12,4 +12,3 @@ spec:
   repo: https://github.com/shpwrck/KMC-SPOG
   targets:
   - clusterSelector: {}
-type: fleet.cattle.io.gitrepo
