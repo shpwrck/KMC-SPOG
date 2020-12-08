@@ -4,6 +4,8 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-istio
 values:
+  ingressGateways:
+    enabled: false
   overlayFile: |
     apiVersion: install.istio.io/v1alpha1
     kind: IstioOperator
