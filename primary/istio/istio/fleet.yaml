@@ -4,27 +4,6 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-istio
 values:
-  overlayFile: |
-      apiVersion: install.istio.io/v1alpha1
-      kind: IstioOperator
-      spec:
-        values:
-          global:
-#            multiCluster:
-#              clusterName: primary
-#            network: primary
-#            meshNetworks:
-#              primary:
-#                endpoints:
-#                - fromRegistry: primary
-#                gateways:
-#                - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
-#                  port: 443
-#              remote:
-#                endpoints:
-#                - fromRegistry: remote
-#                gateways:
-#                - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
-#                  port: 443
-            meshExpansion:
-              enabled: true
+  ingressGateways:
+    enabled: true
+    type: LoadBalancer
