@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: thanos-sidecar-nodeport
-  namespace: cattle-prometheus
+  namespace: cattle-monitoring-system
 spec:
   externalTrafficPolicy: Local
   ports:

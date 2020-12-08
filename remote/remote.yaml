@@ -12,6 +12,7 @@ spec:
   - /remote/istio/istio-resources
   - /remote/istio/istio
   - /remote/istio/kiali
+  - /remote/thanos
   repo: https://github.com/shpwrck/KMC-SPOG
   targets:
   - clusterSelector:
