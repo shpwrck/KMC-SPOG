@@ -1,0 +1,7 @@
+defaultNamespace: istio-system
+helm:
+  releaseName: rancher-thanos
+  repo: https://kubernetes-charts.banzaicloud.com
+  chart: thanos-operator
+  values:
+    manageCrds: false
