@@ -6,9 +6,12 @@ metadata:
 spec:
   branch: main
   clientSecretName: null
-  paths:
-  - /remote/prerequisites
-  - /remote/istio
+  paths:  
+  - /remote/prerequisites/monitoring-crd
+  - /remote/prerequisites/monitoring
+  - /remote/istio/istio-resources
+  - /remote/istio/istio
+  - /remote/istio/kiali
   repo: https://github.com/shpwrck/KMC-SPOG
   targets:
   - clusterSelector:

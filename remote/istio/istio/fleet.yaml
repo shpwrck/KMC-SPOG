@@ -16,4 +16,4 @@ helm:
             multiCluster:
               clusterName: remote
             network: remote
-            remotePilotAddress: ac7356f15a4af4f86a3eced982fd89e3-492901173.us-east-2.elb.amazonaws.com 
+            remotePilotAddress: 13.59.153.163
