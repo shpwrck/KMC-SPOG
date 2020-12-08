@@ -7,8 +7,8 @@ spec:
   branch: main
   clientSecretName: null
   paths:
-  - /primary_observer/prerequisites
-  - /primary_observer/istio
+  - /primary/prerequisites
+  - /primary/istio
   repo: https://github.com/shpwrck/KMC-SPOG
   targets:
   - clusterSelector:

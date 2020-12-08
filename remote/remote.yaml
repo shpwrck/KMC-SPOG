@@ -7,8 +7,8 @@ spec:
   branch: main
   clientSecretName: null
   paths:
-  - /remote_workload/prerequisites
-  - /remote_workload/istio
+  - /remote/prerequisites
+  - /remote/istio
   repo: https://github.com/shpwrck/KMC-SPOG
   targets:
   - clusterSelector:
