@@ -13,8 +13,12 @@ values:
           enabled: true
       components:
         egressGateways:
-          - name: istio-egressgateway
-            enabled: true
+          name: istio-egressgateway
+          enabled: true
+        ingressGateways:
+          name: istio-ingressgateway
+          enabled: true
+          type: Loadbalancer
       values:
         global:
           multiCluster:
