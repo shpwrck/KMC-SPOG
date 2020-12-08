@@ -11,12 +11,6 @@ helm:
       apiVersion: install.istio.io/v1alpha1
       kind: IstioOperator
       spec:
-        components:
-          ingressGateways:
-          - name: istio-ingressgateway
-            namespace: istio-system
-            enabled: true
-            type: Loadbalancer
         values:
           global:
             multiCluster:
