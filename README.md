@@ -12,20 +12,11 @@ As such the "Single Pane of Glass" can manage orchestration of infrastructure an
 
 Centralized Control Cluster
 
-`./primary_observer`
-
-`./primary_observer/prerequisites`
-
-`./primary_observer/istio`
-
-`./primary_observer/thanos`
+* Fleet Drivers
+* Fleet Resources
 
 Distributed Workload Clusters
 
-`./remote_workload`
+* FLeet Drivers
+* Fleet Resources
 
-`./remote_workload/prerequisites`
-
-`./remote_workload/istio`
-
-`./remote_workload/thanos`
