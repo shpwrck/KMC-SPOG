@@ -1,0 +1,8 @@
+apiVersion: monitoring.banzaicloud.io/v1alpha1
+kind: Thanos
+metadata:
+  name: query-master
+  namespace: cattle-monitorint-system
+spec:
+  query: {}
+  queryDiscovery: {}

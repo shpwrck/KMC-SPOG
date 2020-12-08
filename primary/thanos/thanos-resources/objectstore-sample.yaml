@@ -1,0 +1,14 @@
+apiVersion: monitoring.banzaicloud.io/v1alpha1
+kind: ObjectStore
+metadata:
+  name: objectstore-sample
+  namespace: rancher-monitoring-system
+spec:
+  bucketWeb:
+    label: cluster
+  compactor: {}
+  config:
+    mountFrom:
+      secretKeyRef:
+        key: object-store.yaml
+        name: object-store-secret

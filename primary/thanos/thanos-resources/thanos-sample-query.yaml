@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: thanos-sample-query
+  namespace: cattle-monitorint-system
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: thanos-sample-query
+          servicePort: 10902
+        pathType: ImplementationSpecific
