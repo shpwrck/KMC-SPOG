@@ -7,32 +7,32 @@ values:
   ingressGateways:
     enabled: false
   overlayFile: |
-    apiVersion: install.istio.io/v1alpha1
-    kind: IstioOperator
-    spec:
-      components:
-        ingressGateways:
-        - enabled: true
-          name: istio-ingressgateway
-          namespace: istio-system
-          type: LoadBalancer
-      values:
-        global:
-          multiCluster:
-            clusterName: primary
-          network: primary
-          meshNetworks:
-            primary:
-              endpoints:
-              - fromRegistry: primary
-              gateways:
-              - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
-                port: 443
-            remote:
-              endpoints:
-              - fromRegistry: remote
-              gateways:
-              - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
-                port: 443
-          meshExpansion:
-            enabled: true
+      apiVersion: install.istio.io/v1alpha1
+      kind: IstioOperator
+      spec:
+        components:
+          ingressGateways:
+          - enabled: true
+            name: istio-ingressgateway
+            namespace: istio-system
+            type: LoadBalancer
+        values:
+          global:
+            multiCluster:
+              clusterName: primary
+            network: primary
+            meshNetworks:
+              primary:
+                endpoints:
+                - fromRegistry: primary
+                gateways:
+                - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
+                  port: 443
+              remote:
+                endpoints:
+                - fromRegistry: remote
+                gateways:
+                - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
+                  port: 443
+            meshExpansion:
+              enabled: true
