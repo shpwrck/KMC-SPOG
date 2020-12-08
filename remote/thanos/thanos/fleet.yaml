@@ -1,4 +1,4 @@
-defaultNamespace: istio-system
+defaultNamespace: cattle-monitoring-system
 helm:
   releaseName: rancher-thanos
   repo: https://kubernetes-charts.banzaicloud.com
