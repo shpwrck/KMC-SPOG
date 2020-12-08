@@ -4,7 +4,7 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-istio
 values:
-  overlayFile: |
+  overlayFile: |+ 
       apiVersion: install.istio.io/v1alpha1
       kind: IstioOperator
       spec:
