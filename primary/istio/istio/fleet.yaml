@@ -3,10 +3,37 @@ helm:
   releaseName: rancher-istio
   repo: https://charts.rancher.io
   chart: rancher-istio
-values:
-  ingressGateways:
-    enabled: true
-    type: LoadBalancer
-  installer:
-    repository: shpwrck/istio-installer
-    tag: primary
+  values:
+    ingressGateways:
+      enabled: true
+      type: LoadBalancer
+    overlayFile: |-
+        apiVersion: install.istio.io/v1alpha1
+        kind: IstioOperator
+        spec:
+          values:
+            global:
+              multiCluster:
+                clusterName: primary
+              network: primary
+        
+              # Mesh network configuration. This is optional and may be omitted if
+              # all clusters are on the same network.
+              meshNetworks:
+                primary:
+                  endpoints:
+                  - fromRegistry: primary
+                  gateways:
+                  - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
+                    port: 443
+        
+                remote:
+                  endpoints:
+                  - fromRegistry: remote
+                  gateways:
+                  - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
+                    port: 443
+        
+              # Use the existing istio-ingressgateway.
+              meshExpansion:
+                enabled: true

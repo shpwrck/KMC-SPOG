@@ -1,8 +1,8 @@
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: primary-observer
-  namespace: fleet-local
+  name: primary
+  namespace: fleet-default
 spec:
   branch: main
   clientSecretName: null
