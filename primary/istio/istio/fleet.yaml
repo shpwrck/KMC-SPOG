@@ -7,3 +7,6 @@ values:
   ingressGateways:
     enabled: true
     type: LoadBalancer
+  installer:
+    repository: shpwrck/istio-installer
+    tag: primary
