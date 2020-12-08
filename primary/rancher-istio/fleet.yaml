@@ -1,3 +1,0 @@
-namespace: istio-system
-helm:
-  releaseName: rancher-istio
