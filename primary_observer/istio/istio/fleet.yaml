@@ -4,21 +4,13 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-istio
 values:
-  overlayFile: |-
+  ingressGateways:
+    enabled: true
+    type: LoadBalancer
+  overlayFile: |
     apiVersion: install.istio.io/v1alpha1
     kind: IstioOperator
     spec:
-      addonComponents:
-        istiocoredns:
-          enabled: true
-      components:
-        egressGateways:
-          name: istio-egressgateway
-          enabled: true
-        ingressGateways:
-          name: istio-ingressgateway
-          enabled: true
-          type: Loadbalancer
       values:
         global:
           multiCluster:

@@ -4,7 +4,10 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-istio
 values:
-  overlayFile: |-
+  ingressGateways:
+    enabled: true
+    type: LoadBalancer
+  overlayFile: |
     apiVersion: install.istio.io/v1alpha1
     kind: IstioOperator
     spec:
@@ -24,4 +27,4 @@ values:
           multiCluster:
             clusterName: remote
           network: remote
-          remotePilotAddress: 104.131.174.100
+          remotePilotAddress: 

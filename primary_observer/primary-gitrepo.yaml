@@ -11,4 +11,6 @@ spec:
   - /primary_observer/istio
   repo: https://github.com/shpwrck/KMC-SPOG
   targets:
-  - clusterSelector: {}
+  - clusterSelector:
+      matchLabels:
+        role: primary

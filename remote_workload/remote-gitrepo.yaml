@@ -11,4 +11,6 @@ spec:
   - /remote_workload/istio
   repo: https://github.com/shpwrck/KMC-SPOG
   targets:
-  - clusterSelector: {}
+  - clusterSelector:
+      matchLabels:
+        role: remote
