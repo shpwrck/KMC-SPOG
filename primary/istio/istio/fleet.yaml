@@ -6,63 +6,9 @@ helm:
 values:
   base:
     enabled: true
-  cni:
-    enabled: false
-    repository: rancher/istio-install-cni
-    tag: 1.7.3
-  egressGateways:
-    enabled: false
-    type: NodePort
-  forceInstall: false
-  global:
-    cattle:
-      systemDefaultRegistry: ''
-    defaultPodDisruptionBudget:
-      enabled: true
-    proxy:
-      repository: rancher/istio-proxyv2
-      tag: 1.7.3
-    proxy_init:
-      repository: rancher/istio-proxyv2
-      tag: 1.7.3
-    fleet:
-      clusterLabels:
-        management.cattle.io/cluster-display-name: cluster1
-        management.cattle.io/cluster-name: c-p7zdf
-        role: primary
-    systemDefaultRegistry: ''
   ingressGateways:
     enabled: true
-    type: NodePort
-  installer:
-    repository: rancher/istio-installer
-    tag: 1.7.3-rancher2
-  istiocoredns:
-    enabled: false
-    image:
-      repository: rancher/coredns-coredns
-      tag: 1.6.2
-    pluginImage:
-      repository: rancher/istio-coredns-plugin
-      tag: 0.2-istio-1.1
-  istiodRemote:
-    enabled: false
-  kiali:
-    auth:
-      strategy: anonymous
-    deployment:
-      ingress_enabled: false
-      repository: rancher/kiali-kiali
-      tag: v1.24.0
-    enabled: true
-    external_services:
-      prometheus:
-        custom_metrics_url: 'http://rancher-monitoring-prometheus.cattle-monitoring-system.svc:9090'
-        url: 'http://rancher-monitoring-prometheus.cattle-monitoring-system.svc:9090'
-      tracing:
-        enabled: false
-  meshConfig:
-    enablePrometheusMerge: true
+    type: LoadBalancer
   overlayFile: |
     apiVersion: install.istio.io/v1alpha1
     kind: IstioOperator
@@ -72,9 +18,6 @@ values:
           multiCluster:
             clusterName: primary
           network: primary
-  
-          # Mesh network configuration. This is optional and may be omitted if
-          # all clusters are on the same network.
           meshNetworks:
             primary:
               endpoints:
@@ -82,38 +25,11 @@ values:
               gateways:
               - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
                 port: 443
-  
             remote:
               endpoints:
               - fromRegistry: remote
               gateways:
               - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
                 port: 443
-  
-          # Use the existing istio-ingressgateway.
           meshExpansion:
             enabled: true
-  pilot:
-    enabled: true
-    repository: rancher/istio-pilot
-    tag: 1.7.3
-  policy:
-    enabled: false
-    repository: rancher/istio-mixer
-    tag: 1.7.3
-  sidecarInjectorWebhook:
-    enableNamespacesByDefault: false
-    objectSelector:
-      autoInject: true
-      enabled: true
-    rewriteAppHTTPProbe: true
-  tag: 1.7.3
-  telemetry:
-    enabled: true
-    v1:
-      enabled: false
-      repository: rancher/istio-mixer
-      tag: 1.7.3
-    v2:
-      enabled: true
-  
