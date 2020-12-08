@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: thanos-sample-query
-  namespace: cattle-monitorint-system
+  namespace: cattle-monitoring-system
 spec:
   rules:
   - http:

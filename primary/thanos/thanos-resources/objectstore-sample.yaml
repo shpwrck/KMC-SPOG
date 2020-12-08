@@ -2,7 +2,7 @@ apiVersion: monitoring.banzaicloud.io/v1alpha1
 kind: ObjectStore
 metadata:
   name: objectstore-sample
-  namespace: rancher-monitoring-system
+  namespace: cattle-monitoring-system
 spec:
   bucketWeb:
     label: cluster
