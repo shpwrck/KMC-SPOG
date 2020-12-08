@@ -8,15 +8,10 @@ helm:
       prometheusSpec:
         thanos:
           image: 'quay.io/thanos/thanos:v0.16.0'
-          objectConfig:
+          objectStorageConfig:
             config:
-              bucket: skrzypektest
-              region: us-east-1
-              endpoint: s3.amazonaws.com
-              signature_version2: false
-              insecure: true
-              access_key: REPLACEME
-              secret_key: REPLACEME
+              key: object-store.yaml
+              name: object-store-secret
 diff:
   comparePatches:
   - apiVersion: admissionregistration.k8s.io/v1beta1
