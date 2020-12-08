@@ -5,4 +5,4 @@ metadata:
   namespace: cattle-monitoring-system
 spec:
   query: {}
-  queryDiscovery: {}
+  queryDiscovery: True
