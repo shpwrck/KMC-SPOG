@@ -57,30 +57,7 @@ values:
         enabled: false
   meshConfig:
     enablePrometheusMerge: true
-  overlayFile: |-
-    apiVersion: install.istio.io/v1alpha1
-    kind: IstioOperator
-    spec:
-      values:
-        global:
-          multiCluster:
-            clusterName: primary
-          network: primary
-          meshNetworks:
-            primary:
-              endpoints:
-              - fromRegistry: primary
-              gateways:
-              - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
-                port: 443
-            remote:
-              endpoints:
-              - fromRegistry: remote
-              gateways:
-              - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local
-                port: 443
-          meshExpansion:
-            enabled: true
+  overlayFile: "apiVersion: install.istio.io/v1alpha1\n    kind: IstioOperator\n    spec:\n      values:\n        global:\n          multiCluster:\n            clusterName: primary\n          network: primary\n          meshNetworks:\n            primary:\n              endpoints:\n              - fromRegistry: primary\n              gateways:\n              - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local\n                port: 443\n            remote:\n              endpoints:\n              - fromRegistry: remote\n              gateways:\n              - registry_service_name: istio-ingressgateway.istio-system.svc.cluster.local\n                port: 443\n          meshExpansion:\n            enabled: true"
   pilot:
     enabled: true
     repository: rancher/istio-pilot
