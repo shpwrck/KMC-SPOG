@@ -1,7 +1,7 @@
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: remote-workload
+  name: remote
   namespace: fleet-default
 spec:
   branch: main

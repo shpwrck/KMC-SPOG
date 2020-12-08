@@ -3,23 +3,23 @@ helm:
   releaseName: rancher-istio
   repo: https://charts.rancher.io
   chart: rancher-istio
-values:
-  ingressGateways:
-    enabled: true
-    type: LoadBalancer
-  overlayFile: |
-    apiVersion: install.istio.io/v1alpha1
-    kind: IstioOperator
-    spec:
-      components:
-        ingressGateways:
-        - name: istio-ingressgateway
-          namespace: istio-system
-          enabled: true
-          type: Loadbalancer
-      values:
-        global:
-          multiCluster:
-            clusterName: remote
-          network: remote
-          remotePilotAddress: 
+  values:
+    ingressGateways:
+      enabled: true
+      type: LoadBalancer
+    overlayFile: |-
+      apiVersion: install.istio.io/v1alpha1
+      kind: IstioOperator
+      spec:
+        components:
+          ingressGateways:
+          - name: istio-ingressgateway
+            namespace: istio-system
+            enabled: true
+            type: Loadbalancer
+        values:
+          global:
+            multiCluster:
+              clusterName: remote
+            network: remote
+            remotePilotAddress: ac7356f15a4af4f86a3eced982fd89e3-492901173.us-east-2.elb.amazonaws.com 
