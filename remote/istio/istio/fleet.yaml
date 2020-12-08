@@ -11,15 +11,10 @@ values:
     apiVersion: install.istio.io/v1alpha1
     kind: IstioOperator
     spec:
-      addonComponents:
-        istiocoredns:
-          enabled: true
       components:
-        egressGateways:
-          name: istio-egressgateway
-          enabled: true
         ingressGateways:
-          name: istio-ingressgateway
+        - name: istio-ingressgateway
+          namespace: istio-system
           enabled: true
           type: Loadbalancer
       values:
