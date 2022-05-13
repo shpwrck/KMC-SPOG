@@ -17,6 +17,6 @@ Centralized Control Cluster
 
 Distributed Workload Clusters
 
-* FLeet Drivers
+* Fleet Drivers
 * Fleet Resources
 
